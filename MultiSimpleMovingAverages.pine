@@ -1,11 +1,11 @@
 // This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © smbolster
 
-//@version=4
+//@version=5
 
-study("Simple Moving Averages","SMAs", overlay=true)
+indicator('Simple Moving Averages', 'SMAs', overlay=true)
 
-    
+
 
 
 int secondsInDay = 390
@@ -14,21 +14,22 @@ int periodsInBar = 0
 
 
 
-sma1 = input(title="SMA Level 1", type=input.integer,defval=10)
-sma2 = input(title="SMA Level 2", type=input.integer,defval=20)
-sma3 = input(title="SMA Level 3", type=input.integer,defval=100)
-sma4 = input(title="SMA Level 4", type=input.integer,defval=200)
+sma1 = input(title='SMA Level 1', defval=10)
+sma2 = input(title='SMA Level 2', defval=20)
+sma3 = input(title='SMA Level 3', defval=100)
+sma4 = input(title='SMA Level 4', defval=200)
 
 
 
-smaLine1 = sma(close,sma1)
-smaLine2 = sma(close,sma2)
-smaLine3 = sma(close,sma3)
-smaLine4 = sma(close,sma4)
+smaLine1 = ta.sma(close, sma1)
+smaLine2 = ta.sma(close, sma2)
+smaLine3 = ta.sma(close, sma3)
+smaLine4 = ta.sma(close, sma4)
 
 
 
-plot(smaLine1, color=color.green, title="SMA Level 1")
-plot(smaLine2, color=color.purple, title="SMA Level 2")
-plot(smaLine3, color=#FF0000, title="SMA Level 3" )
-plot(smaLine4, color=#FF0000, title="SMA Level 4" )
+plot(smaLine1, color=color.new(color.green, 0), title='SMA Level 1')
+plot(smaLine2, color=color.new(color.purple, 0), title='SMA Level 2')
+plot(smaLine3, color=color.new(#FF0000, 0), title='SMA Level 3')
+plot(smaLine4, color=color.new(#FF0000, 0), title='SMA Level 4')
+
