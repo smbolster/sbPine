@@ -1,21 +1,21 @@
 // This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © smbolster
 
-//@version=4
-study("Exponential Moving Averages","EMAs", overlay=true)
+//@version=5
+indicator('Exponential Moving Averages', 'EMAs', overlay=true)
 
 
-ema1 = input(title="EMA Level 1", type=input.integer,defval=10)
-ema2 = input(title="EMA Level 2", type=input.integer,defval=20)
-ema3 = input(title="EMA Level 3", type=input.integer,defval=50)
-ema4 = input(title="EMA Level 4", type=input.integer,defval=65)
+ema1 = input(title='EMA Level 1', defval=10)
+ema2 = input(title='EMA Level 2', defval=20)
+ema3 = input(title='EMA Level 3', defval=50)
+ema4 = input(title='EMA Level 4', defval=65)
 
-ema1Line = ema(close,ema1)
-ema2Line = ema(close, ema2)
-ema3Line = ema(close, ema3)
-ema4Line = ema(close, ema4)
+ema1Line = ta.ema(close, ema1)
+ema2Line = ta.ema(close, ema2)
+ema3Line = ta.ema(close, ema3)
+ema4Line = ta.ema(close, ema4)
 
-plot(ema1Line, color=color.green, title="1" )
-plot(ema2Line, color=color.purple, title="2" )
-plot(ema3Line, color=#FF0000, title="3" )
-plot(ema4Line, color=#0400ed, title="4" )
+plot(ema1Line, color=color.new(color.green, 0), title='1')
+plot(ema2Line, color=color.new(color.purple, 0), title='2')
+plot(ema3Line, color=color.new(#FF0000, 0), title='3')
+plot(ema4Line, color=color.new(#0400ed, 0), title='4')
