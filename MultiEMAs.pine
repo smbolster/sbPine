@@ -6,7 +6,7 @@ indicator('Exponential Moving Averages', 'EMAs', overlay=true)
 
 
 ema1 = input(title='EMA Level 1', defval=10)
-ema2 = input(title='EMA Level 2', defval=20)
+ema2 = input(title='EMA Level 2', defval=21)
 ema3 = input(title='EMA Level 3', defval=50)
 ema4 = input(title='EMA Level 4', defval=65)
 
