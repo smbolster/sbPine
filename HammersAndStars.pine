@@ -1,0 +1,41 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © smbolster
+
+//@version=4
+study("Hammers and Stars","hammers and stars", overlay=true)
+
+//input
+fiblevel = input(title="Fib Level", type=input.float,defval=0.333)
+colorFilter = input(title="Color Must Match", type=input.bool, defval=true)
+
+
+//calculate fibinace level for current candle
+//high 5.73
+//low 5.25
+
+bullFib = (low - high) * fiblevel + high
+bearFib = (high - low) * fiblevel + low
+
+//determine candle type
+lowestBody = close < open ? close : open
+highestBody = close > open ? close : open
+
+//types
+type = close < open ? "bear" : "bull"
+
+
+//determine if valid hammer or shooting start
+hammerCandle = lowestBody >= bullFib and (not colorFilter or close > open)
+starCandle = highestBody <= bearFib and (not colorFilter or open > close)
+
+
+//plot signals
+plotshape(hammerCandle, style=shape.triangleup, location=location.belowbar, color= color.green, size=size.small, text="hammer up" )
+plotshape(starCandle, style=shape.triangledown, location=location.abovebar, color= color.red , size=size.small, text="hammer down")
+
+
+
+
+
+
+
