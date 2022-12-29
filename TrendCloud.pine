@@ -1,0 +1,25 @@
+//@version=5
+
+indicator('Trend Cloud Velez', 'Trend Cloud', overlay=true)
+
+sma1Length = input(10, 'SMA 1 Length')
+sma2Length = input(20, 'SMA 2 Length')
+
+price = close
+
+
+sma1 = ta.sma(price, sma1Length)
+sma2 = ta.sma(price, sma2Length)
+
+
+p2 = plot(sma1, color=sma1 > sma1[1] ? color.new(color.lime,0) : color.new(color.red,0), linewidth=2, title="SMA1")
+p3 = plot(sma2, color=color.new(color.white, 0), linewidth=2, title="SMA2")
+
+
+
+fill(p2, p3, color=sma1 > sma2 ? color.new(color.lime,90) : color.new(color.red,90), title="Trend Cloud")
+
+
+
+
+

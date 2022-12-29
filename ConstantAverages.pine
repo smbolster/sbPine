@@ -1,0 +1,54 @@
+//@version=5
+
+indicator("Constant Averages", "Constant Averages", overlay=true)
+
+//fiveDay = request.security(syminfo.tickerid, 'D', ta.sma(close,5))
+//plot(fiveDay, "5 Day", color.new(color.white,0), linewidth=2)
+
+timeF = timeframe.period
+
+
+int barsFor5Day = switch timeF
+    "1" => 1950
+    "5" => 390
+    "15" => 130
+    "30" => 65
+    "65" => 30
+    "D" => 5
+    => 1
+
+
+    
+sma5Day = ta.sma(close, barsFor5Day)
+plot(sma5Day, "5 day", color.new(color.red, 0), linewidth = 1)
+
+    
+
+int barsFor10Week = switch timeF
+    "1" => 19500
+    "5" => 3900
+    "15" => 1300
+    "30" => 650
+    "65" => 300
+    "D" => 50
+    "W" => 10
+    => 1
+
+sma10Week = ta.sma(close, barsFor10Week)
+plot(sma10Week, "50 Day", color.new(color.yellow,0), linewidth = 1)
+
+//40 week
+int barsFor40Week = switch timeF
+    "1" => 78000
+    "5" => 15600
+    "15" => 5200
+    "30" => 2600
+    "65" => 1200
+    "D" => 200
+    "W" => 40
+    => 1
+
+sma40Week = ta.sma(close, barsFor40Week)
+plot(sma40Week, "200 Day", color.new(color.red,0), linewidth = 1)
+
+
